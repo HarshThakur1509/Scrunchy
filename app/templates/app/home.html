@@ -1,0 +1,23 @@
+{% extends 'main.html' %} {% block content %} {% load static %}
+<section class="product-section">
+  <div class="container">
+    <h2>Featured Products</h2>
+  
+    <div class="row">
+      {% for product in products %}
+
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="{{product.image.url}}" alt="Product 1" />
+          <div class="card-body">
+            <h5 class="card-title pro-name">{{product.name}}</h5>
+            <span class="card-text pro-price">Rs. {{product.price}}</span>
+            <a href="{% url 'cart_add' product.id %}" class= "add-cart"><i class="fa-solid fa-plus" style="color: #f6a6d4;"></i><a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
