@@ -70,7 +70,7 @@ def cart_add(request, id):
 def cart_delete(request, id):
     cart = CartItem.objects.get(id=id)
     cart.delete()
-    if not CartItem.objects.filter(user=request.user).exists():
+    if not CartItem.objects.filter(cart__user=request.user).exists():
         Cart.objects.filter(user=request.user).delete()
 
     return redirect("cart")
