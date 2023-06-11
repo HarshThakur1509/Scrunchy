@@ -9,13 +9,13 @@
         <div class="item-details">
           <img
             class="cart-image"
-            src="{{item.name.image.url}}"
-            alt="{{item.name}}"
+            src="{{item.product.image.url}}"
+            alt="{{item.product.name}}"
           />
 
           <div class="item-info">
-            <h5 class="pro-name">{{item.name.name}}</h5>
-            <p class="pro-price">Rs.{{item.name.price}}</p>
+            <h5 class="pro-name">{{item.product.name}}</h5>
+            <p class="pro-price">Rs.{{item.product.price}}</p>
           </div>
         </div>
         <div class="quantity ml-auto">
@@ -43,25 +43,10 @@
       <!-- Add more cart items here -->
     </div>
     <div class="cart-total">
-      <h4>Total: $20</h4>
+      <h4>Total: {{total}}</h4>
       <button class="btn btn-primary">Checkout</button>
     </div>
   </div>
 </section>
-<script>
-  let qun = document.querySelectorAll(".quantity");
-  qun.forEach((q) => {
-    let btns = q.querySelectorAll(".quantity-btn");
-    btns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        if (e.target.parentElement.classList[1] == "plus")
-          e.target.parentElement.parentElement.children[2].value++;
-        else if (e.target.parentElement.classList[1] == "minus") {
-          if (e.target.parentElement.parentElement.children[2].value == 0);
-          else e.target.parentElement.parentElement.children[2].value--;
-        }
-      });
-    });
-  });
-</script>
+
 {% endblock content %}

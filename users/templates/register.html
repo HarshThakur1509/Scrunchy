@@ -35,69 +35,15 @@
               <h2 class="fw-bold mb-5" style="color: var(--dblue)">
                 Sign up now
               </h2>
-              {% if messages %}
-              <ul class="messages">
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-              </ul>
-              {% endif %}
+
               <form action="" method="POST">
-                {% csrf_token %}
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                {% comment %}
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input
-                        type="text"
-                        id="form3Example1"
-                        class="form-control"
-                        placeholder="First name"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input
-                        type="text"
-                        id="form3Example2"
-                        class="form-control"
-                        placeholder="last name"
-                      />
-                    </div>
-                  </div>
-                </div>
-                {% endcomment %}
-
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input
-                    type="email"
-                    id="form3Example3"
-                    class="form-control"
-                    name="email"
-                    placeholder="Email"
-                  />
-                </div>
-
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input
-                    type="password"
-                    id="form3Example4"
-                    class="form-control"
-                    name="password"
-                    placeholder="Password"
-                  />
-                </div>
-
+                {% csrf_token %} {{form.as_p}}
                 <button type="submit" class="btn btn-primary btn-block mb-4">
-                  Sign in
+                  Sign up
                 </button>
               </form>
-              <p>Have'nt registered yet?</a>
-              <a href="{% url 'register' %}">register </a>
+              <p>Already Signed up?</p>
+              <a href="{% url 'login' %}">Sign in</a>
             </div>
           </div>
         </div>
