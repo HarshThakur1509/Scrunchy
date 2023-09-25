@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load socialaccount %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,7 +21,11 @@
       <!-- Background image -->
       <div class="p-5 bg-image login-back"></div>
       <!-- Background image -->
-
+      <div class="top">
+        <a href="/">
+          <img id="logo" src="{% static 'images/logo.png' %}" alt=""
+        /></a>
+      </div>
       <div
         class="card mx-4 mx-md-5 shadow-5-strong"
         style="
@@ -91,10 +96,21 @@
                     placeholder="Password"
                   />
                 </div>
+                
 
-                <button type="submit" class="btn btn-primary btn-block mb-4">
+                <button type="submit" class="btn btn-primary btn-block mb-4 w-10">
                   Sign in
                 </button>
+                
+
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-3">
+                  <a class="btn btn-outline-dark" href="{% provider_login_url 'google'%}?next=/" role="button" style="text-transform:none">
+                    <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                    Login with Google
+                  </a>
+                </div>
+              </div>
               </form>
               <p>Have'nt registered yet?</a>
               <a href="{% url 'register' %}">register </a>
