@@ -11,6 +11,11 @@ User = get_user_model()
 # Create your views here.
 
 
+def signup_redirect(request):
+    # messages.error(request, "You already have an account!!")
+    return redirect("home")
+
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect("home")
@@ -39,8 +44,8 @@ def logoutUser(request):
 
 def home(request):
     products = Product.objects.all()
-
-    context = {"products": products}
+    user = request.user
+    context = {"products": products, "user": user}
     return render(request, "app/home.html", context)
 
 
