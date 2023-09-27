@@ -6,7 +6,9 @@
     </a>
   </nav>
   <div class="nav-info">
-    {{request.user.username}}
+    {% if request.user.is_superuser %}
+    <a href="{% url 'admin:index' %}">{{request.user.username}}</a>
+    {% else %} {{request.user.username}} {% endif %}
     <a href="{% url 'cart' %}">
       <i class="fa-solid fa-cart-shopping" style="color: var(--dblue)"></i
     ></a>
